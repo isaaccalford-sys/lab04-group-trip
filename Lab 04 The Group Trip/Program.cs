@@ -7,8 +7,15 @@
 */
 using System.Security;
 using System.Security.Cryptography;
+//constants 
 const Double amountOfSlices = 8;
- const Double taxRate = .18;
+const Double taxRate = .18;
+
+// arrays
+string[] names = { "Ada", "Grace", "Alan", "Katherine" };
+double[] hoursWorked = { 22, 15, 30, 18 };
+double[] hourlyRates = { 13.50, 16.00, 11.20, 14.80 };
+
 //part 1: Road Trip
 
 //Questions
@@ -20,11 +27,6 @@ Double milesPerGallon = Convert.ToDouble(Console.ReadLine());
 
 Console.Write("How much did you pay for gas? ");
 Double pricePerGallon = Convert.ToDouble(Console.ReadLine());
-
-// GET RID OF LATER
-System.Console.Write("How many people came to your party? ");
- Double amountOfPeopleComing = Convert.ToDouble(Console.ReadLine());
-// this one^^
   
 System.Console.Write("How many pizzas do you get? ");
  Double  amountOfPizzas= Convert.ToDouble(Console.ReadLine());
@@ -40,18 +42,37 @@ double fuelCost = FuelCost(miles, milesPerGallon, pricePerGallon);
 
 //pizza
 Double totalSlices = amountOfPizzas * amountOfSlices;
-Double slicesPerPerson =  totalSlices / amountOfPeopleComing;
+Double slicesPerPerson =  totalSlices / names.Length;
 Double pizzaCost =amountOfPizzas * pricePerPizza;
 
 //Trip total
 Double tripTotal = fuelCost + pizzaCost;
-Double amountOwed = tripTotal / amountOfPeopleComing;
+Double amountOwed = tripTotal / names.Length;
 
+//results
 System.Console.WriteLine();
 System.Console.WriteLine("=== Part 1: The Trip ===");
 System.Console.WriteLine("Fuel cost " + fuelCost.ToString("C") );
 System.Console.WriteLine("Pizza cost: " + pizzaCost.ToString("C"));
 System.Console.WriteLine("Trip total: " + tripTotal.ToString("C"));
+
+
+
+// Part 2: The Group 
+
+
+//math
+double slicesEach = totalSlices / names.Length;
+double costPerPerson = tripTotal / names.Length;
+
+//results
+System.Console.WriteLine();
+System.Console.WriteLine("=== Part 2: The Group ===");
+System.Console.WriteLine($"People Going: {names.Length}");
+System.Console.WriteLine($"Slices each: {slicesEach.ToString("F1")}");
+System.Console.WriteLine($"Cost per person: {costPerPerson.ToString("C")}");
+
+
 
 //print
 // System.Console.WriteLine();
