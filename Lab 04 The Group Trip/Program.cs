@@ -3,7 +3,7 @@
 * Course: CSCI-1250, Section 201
 * Assignment: Lab 04, The Group Trip
 * Date: October 12, 2026
-* Discription: reviseing lab 2 with methods.
+* Discription: Revising lab 2 with methods and arrays.
 */
 using System.Security;
 using System.Security.Cryptography;
@@ -30,7 +30,7 @@ Console.Write("How much did you pay for gas? ");
 Double pricePerGallon = Convert.ToDouble(Console.ReadLine());
   
 System.Console.Write("How many pizzas do you get? ");
- Double  amountOfPizzas= Convert.ToDouble(Console.ReadLine());
+ Double amountOfPizzas= Convert.ToDouble(Console.ReadLine());
 
 System.Console.Write("What is the price per pizza? ");
  Double pricePerPizza = Convert.ToDouble(Console.ReadLine());
@@ -102,19 +102,21 @@ System.Console.WriteLine($"Total take home pay: {totalPay.ToString("C")}");
 System.Console.WriteLine($"Longest anyone must work: {longestHours.ToString("F2")}");
 
 //Methods 
+//finds the total cost of fuel for the trip
 static double FuelCost (double miles, double milesPerGallon, double pricePerGallon)
 {
     Double gallonsNeeded = miles / milesPerGallon;
    return gallonsNeeded * pricePerGallon;
 }
 
+//finds the money taken home out of the paycheck
 static double TakeHomePay (double hours, double hourlyRate, double taxRate)
 {
     Double grossPay = hours * hourlyRate;
     Double taxWithheld = grossPay * taxRate;
     return grossPay - taxWithheld;
 }
-
+//finds how many hours of work are needed to pay for the trip
 static double HoursToCover(double amountOwed, double takeHomePerHour)
 {
     return  amountOwed / takeHomePerHour;
